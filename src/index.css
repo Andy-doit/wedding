@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+/* Base styles - sử dụng @layer để đảm bảo không override Tailwind */
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Arial', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    background-color: #ffffff;
+    color: #1a1a1a;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Component styles - sử dụng @layer components */
+@layer components {
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f5f5f5;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #666;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #333;
+  }
+
+  /* Elegant decorative line */
+  .decorative-line {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #000, transparent);
+    margin: 20px auto;
+  }
+
+  /* Elegant divider */
+  .elegant-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin: 40px 0;
+  }
+
+  .elegant-divider::before,
+  .elegant-divider::after {
+    content: '';
+    width: 50px;
+    height: 1px;
+    background: #000;
+  }
+
+  .elegant-divider span {
+    font-size: 20px;
+    color: #666;
+  }
+}
