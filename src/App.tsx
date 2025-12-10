@@ -9,10 +9,6 @@ function App() {
     seconds: 0
   })
 
-  const [guestName, setGuestName] = useState('')
-  const [guestMessage, setGuestMessage] = useState('')
-  const [wishes, setWishes] = useState<Array<{ name: string; message: string }>>([])
-
   // Countdown timer
   useEffect(() => {
     const targetDate = new Date('2026-01-16T16:30:00').getTime()
@@ -33,20 +29,6 @@ function App() {
 
     return () => clearInterval(interval)
   }, [])
-
-  const handleSubmitWish = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (guestName && guestMessage) {
-      setWishes([...wishes, { name: guestName, message: guestMessage }])
-      setGuestName('')
-      setGuestMessage('')
-    }
-  }
-
-  const copyToClipboard = (text: string) => {
-    navigator.clipboard.writeText(text)
-    alert('Đã sao chép!')
-  }
 
   return (
     <div className="min-h-screen bg-white">
