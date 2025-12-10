@@ -819,79 +819,83 @@ function App() {
             </h2>
           </motion.div>
 
-          <div className="space-y-12 sm:space-y-16 md:space-y-20">
-            {[
-              {
-                title: 'Thánh Lễ Hôn Phối',
-                subtitle: 'Lễ thành hôn',
-                date: '16 Tháng 01, 2026',
-                time: '4:30 Chiều',
-                location: 'Nhà thờ Giáo xứ Vinh An',
-                address: 'Địa chỉ nhà thờ Giáo xứ Vinh An',
-                map: 'https://maps.google.com',
-                note: '(Nhằm ngày 28/11 năm Ất Tỵ)'
-              },
-              {
-                title: 'Tiệc Cưới',
-                subtitle: 'Tiệc mừng',
-                date: '16 Tháng 01, 2026',
-                time: '6:00 Chiều',
-                location: 'Nhà hàng tiệc cưới',
-                address: 'Địa chỉ nhà hàng tiệc cưới',
-                map: 'https://maps.google.com'
-              }
-            ].map((event, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 1.2, delay: index * 0.3 }}
-                className="bg-white border-2 border-gray-200 p-6 sm:p-8 md:p-12 lg:p-16 shadow-[0_15px_50px_rgba(0,0,0,0.08)] hover:shadow-[0_20px_60px_rgba(0,0,0,0.12)] transition-all duration-700"
-              >
-                <div className="grid md:grid-cols-5 gap-6 sm:gap-8 md:gap-12">
-                  <div className="md:col-span-2">
-                    <div className="aspect-square overflow-hidden border-2 border-gray-200 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center shadow-inner">
-                      <span className="text-gray-400 text-2xl sm:text-3xl md:text-4xl">📍</span>
-                    </div>
-                  </div>
-                  <div className="md:col-span-3 space-y-4 sm:space-y-6 md:space-y-8">
-                    <div>
-                      <p className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-[0.25em] sm:tracking-[0.3em] mb-2 sm:mb-3 font-light">{event.subtitle}</p>
-                      <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-black mb-4 sm:mb-6">
+          <div className="space-y-10 sm:space-y-12 md:space-y-14">
+              {[
+                {
+                  title: 'Thánh Lễ Hôn Phối',
+                  subtitle: 'Lễ thành hôn',
+                  date: '16 Tháng 01, 2026',
+                  time: '4:30 Chiều',
+                  location: 'Nhà thờ Giáo xứ Vinh An',
+                  address: 'Địa chỉ nhà thờ Giáo xứ Vinh An',
+                  map: 'https://maps.google.com',
+                  note: '(Nhằm ngày 28/11 năm Ất Tỵ)'
+                },
+                {
+                  title: 'Tiệc Cưới',
+                  subtitle: 'Tiệc mừng',
+                  date: '16 Tháng 01, 2026',
+                  time: '6:00 Chiều',
+                  location: 'Nhà hàng tiệc cưới',
+                  address: 'Địa chỉ nhà hàng tiệc cưới',
+                  map: 'https://maps.google.com'
+                }
+              ].map((event, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 1.1, delay: index * 0.2 }}
+                className="relative"
+                >
+                <div className={`grid gap-6 sm:gap-8 md:grid-cols-2 md:gap-10 lg:gap-14 items-center ${index % 2 === 1 ? 'md:[&>*:first-child]:order-2 md:[&>*:last-child]:order-1' : ''}`}>
+                  <div className="relative">
+                    <div className="bg-white/90 backdrop-blur-xl border border-gray-200/80 shadow-[0_18px_60px_rgba(0,0,0,0.1)] rounded-2xl p-6 sm:p-7 md:p-9 lg:p-10 transition-all duration-500 hover:shadow-[0_24px_80px_rgba(0,0,0,0.14)]">
+                      <p className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-[0.25em] sm:tracking-[0.3em] font-light mb-3 sm:mb-4">
+                        {event.subtitle}
+                      </p>
+                      <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-black leading-tight mb-3 sm:mb-4">
                         {event.title}
                       </h3>
-                    </div>
-                    <div className="space-y-3 sm:space-y-4 text-gray-600 font-light">
-                      <div className="flex items-start gap-3 sm:gap-4">
-                        <span className="text-gray-400 mt-1 text-lg sm:text-xl">📅</span>
-                        <div>
-                          <p className="font-medium text-black text-base sm:text-lg">{event.date}</p>
-                          <p className="text-sm sm:text-base text-gray-500 mt-1">{event.time}</p>
-                          {event.note && (
-                            <p className="text-xs sm:text-sm text-gray-400 italic mt-2">{event.note}</p>
-                          )}
+                      <div className="flex flex-wrap gap-2 sm:gap-3 mb-4 sm:mb-5">
+                        <span className="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-gray-100 text-gray-700 text-xs sm:text-sm border border-gray-200">
+                          <span className="text-gray-400">📅</span>
+                          <span className="font-medium text-black">{event.date}</span>
+                        </span>
+                        <span className="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-gray-900 text-white text-xs sm:text-sm border border-gray-800 shadow">
+                          <span className="text-white/80">⏰</span>
+                          <span className="font-medium">{event.time}</span>
+                        </span>
+                      </div>
+                      <div className="space-y-3 sm:space-y-4 text-gray-600 font-light text-sm sm:text-base">
+                        {event.note && <p className="text-gray-500 text-xs sm:text-sm italic">{event.note}</p>}
+                        <div className="flex items-start gap-3">
+                          <span className="text-lg sm:text-xl text-gray-400">📍</span>
+                          <div>
+                            <p className="text-black font-medium">{event.location}</p>
+                            <p className="text-gray-500 text-sm sm:text-base mt-1">{event.address}</p>
+                          </div>
                         </div>
                       </div>
-                      <div className="flex items-start gap-3 sm:gap-4">
-                        <span className="text-gray-400 mt-1 text-lg sm:text-xl">📍</span>
-                        <div>
-                          <p className="font-medium text-black text-base sm:text-lg">{event.location}</p>
-                          <p className="text-sm sm:text-base text-gray-500 mt-1">{event.address}</p>
-                        </div>
-                      </div>
+                      <button 
+                        onClick={() => window.open(event.map, '_blank')}
+                        className="inline-flex items-center justify-center gap-2 mt-5 w-full sm:w-auto bg-black text-white px-5 sm:px-6 md:px-7 py-3 sm:py-3.5 hover:bg-gray-800 transition-all duration-300 font-light uppercase tracking-[0.15em] text-[11px] sm:text-xs border-2 border-black hover:shadow-lg"
+                      >
+                        Xem bản đồ
+                      </button>
                     </div>
-                    <button 
-                      onClick={() => window.open(event.map, '_blank')}
-                      className="mt-4 sm:mt-6 md:mt-8 bg-black text-white px-6 sm:px-8 md:px-10 py-3 sm:py-4 hover:bg-gray-800 transition-all duration-300 font-light uppercase tracking-[0.15em] sm:tracking-[0.2em] text-[10px] sm:text-xs border-2 border-black hover:shadow-lg"
-                    >
-                      Xem bản đồ
-                    </button>
+                  </div>
+
+                  <div className="w-full">
+                    <div className="aspect-[4/3] rounded-2xl overflow-hidden border border-gray-200 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center shadow-inner">
+                      <span className="text-gray-300 text-sm sm:text-base">Hình ảnh địa điểm</span>
+                    </div>
                   </div>
                 </div>
-              </motion.div>
-            ))}
-          </div>
+                </motion.div>
+              ))}
+            </div>
         </div>
       </section>
 
@@ -969,266 +973,13 @@ function App() {
         <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-transparent via-gray-300/25 to-transparent sm:via-gray-300/30 hidden md:block"></div>
         <div className="absolute right-0 top-0 bottom-0 w-1 bg-gradient-to-b from-transparent via-gray-300/25 to-transparent sm:via-gray-300/30 hidden md:block"></div>
         
-        <div className="max-w-5xl mx-auto relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 1.2 }}
-            className="text-center mb-12 sm:mb-16 md:mb-20 lg:mb-24"
-          >
-            <p className="text-gray-500 text-[10px] sm:text-xs uppercase tracking-[0.3em] sm:tracking-[0.35em] md:tracking-[0.4em] mb-4 sm:mb-6 md:mb-8 font-light">
-              Lời Chúc
-            </p>
-            <div className="flex items-center justify-center gap-4 sm:gap-6 md:gap-8 mb-6 sm:mb-8 md:mb-10">
-              <div className="h-px w-12 sm:w-16 md:w-20 lg:w-28 bg-gradient-to-r from-transparent via-gray-300 to-gray-300"></div>
-              <span className="text-gray-400 text-lg sm:text-xl md:text-2xl">✦</span>
-              <div className="h-px w-12 sm:w-16 md:w-20 lg:w-28 bg-gradient-to-r from-gray-300 via-gray-300 to-transparent"></div>
-            </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black mb-4 sm:mb-6 md:mb-8">
-              Sổ Lưu Bút
-            </h2>
-            <p className="text-gray-600 font-light max-w-2xl mx-auto text-sm sm:text-base md:text-lg px-4">
-              Chúng tôi rất mong nhận được lời chúc từ bạn
-            </p>
-          </motion.div>
-
-          <motion.form
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 1.2 }}
-            onSubmit={handleSubmitWish}
-            className="bg-white border-2 border-gray-200 p-6 sm:p-8 md:p-12 lg:p-16 mb-12 sm:mb-16 md:mb-20 shadow-[0_15px_50px_rgba(0,0,0,0.08)]"
-          >
-            <div className="space-y-6 sm:space-y-8">
-              <div>
-                <label className="block text-gray-700 mb-3 sm:mb-4 text-xs sm:text-sm uppercase tracking-[0.15em] sm:tracking-[0.2em] font-light">
-                  Tên của bạn
-                </label>
-                <input
-                  type="text"
-                  value={guestName}
-                  onChange={(e) => setGuestName(e.target.value)}
-                  className="w-full px-4 sm:px-5 py-3 sm:py-4 border-2 border-gray-300 focus:outline-none focus:border-black transition-all duration-300 bg-white font-light text-sm sm:text-base"
-                  placeholder="Nhập tên của bạn"
-                />
-              </div>
-              <div>
-                <label className="block text-gray-700 mb-3 sm:mb-4 text-xs sm:text-sm uppercase tracking-[0.15em] sm:tracking-[0.2em] font-light">
-                  Lời chúc
-                </label>
-                <textarea
-                  value={guestMessage}
-                  onChange={(e) => setGuestMessage(e.target.value)}
-                  rows={6}
-                  className="w-full px-4 sm:px-5 py-3 sm:py-4 border-2 border-gray-300 focus:outline-none focus:border-black transition-all duration-300 resize-none bg-white font-light text-sm sm:text-base"
-                  placeholder="Viết lời chúc của bạn..."
-                />
-              </div>
-              <button
-                type="submit"
-                className="w-full bg-black text-white px-6 sm:px-8 py-4 sm:py-5 hover:bg-gray-800 transition-all duration-300 font-light uppercase tracking-[0.15em] sm:tracking-[0.2em] text-[10px] sm:text-xs border-2 border-black hover:shadow-lg"
-              >
-                Gửi lời chúc
-              </button>
-            </div>
-          </motion.form>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 1.2 }}
-          >
-            <h3 className="text-2xl sm:text-3xl text-black mb-6 sm:mb-8 md:mb-10">
-              Lời chúc từ khách mời
-            </h3>
-            <div className="space-y-4 sm:space-y-5">
-              {wishes.length === 0 ? (
-                <p className="text-gray-400 italic font-light text-center py-12 sm:py-16 border-2 border-gray-200 bg-white text-sm sm:text-base md:text-lg">
-                  Chưa có lời chúc nào. Hãy là người đầu tiên gửi lời chúc nhé!
-                </p>
-              ) : (
-                wishes.map((wish, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5 }}
-                    className="bg-white border-2 border-gray-200 p-6 sm:p-8 shadow-sm hover:shadow-md transition-shadow duration-300"
-                  >
-                    <p className="font-medium text-black mb-2 sm:mb-3 text-base sm:text-lg">{wish.name}</p>
-                    <p className="text-gray-600 font-light leading-relaxed text-sm sm:text-base">{wish.message}</p>
-                  </motion.div>
-                ))
-              )}
-            </div>
-          </motion.div>
-        </div>
+       
       </section>
 
-      {/* Gift Registry Section - Premium Mobile-First */}
-      <section className="relative py-16 sm:py-20 md:py-28 lg:py-32 xl:py-40 px-4 sm:px-6 md:px-12 bg-white overflow-hidden">
-        {/* Ornate corner decorations */}
-        <div className="absolute top-8 sm:top-12 md:top-16 left-8 sm:left-12 md:left-16 w-20 h-20 sm:w-22 md:w-24 opacity-[0.03] sm:opacity-[0.035] md:opacity-[0.04]">
-          <svg viewBox="0 0 100 100" fill="none">
-            <path d="M0 0 L100 0 M0 0 L0 100" stroke="black" strokeWidth="1.5"/>
-            <circle cx="10" cy="10" r="3" fill="black"/>
-            <circle cx="25" cy="10" r="2" fill="black"/>
-            <circle cx="10" cy="25" r="2" fill="black"/>
-          </svg>
-        </div>
-        <div className="absolute bottom-8 sm:bottom-12 md:bottom-16 right-8 sm:right-12 md:right-16 w-20 h-20 sm:w-22 md:w-24 opacity-[0.03] sm:opacity-[0.035] md:opacity-[0.04]">
-          <svg viewBox="0 0 100 100" fill="none">
-            <path d="M100 0 L100 100 M0 100 L100 100" stroke="black" strokeWidth="1.5"/>
-            <circle cx="90" cy="90" r="3" fill="black"/>
-            <circle cx="75" cy="90" r="2" fill="black"/>
-            <circle cx="90" cy="75" r="2" fill="black"/>
-          </svg>
-        </div>
-        
-        {/* Premium grid pattern */}
-        <div className="absolute inset-0 opacity-[0.01] sm:opacity-[0.012] md:opacity-[0.015]">
-          <div 
-            className="w-full h-full"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='70' height='70' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M35 0 L35 70 M0 35 L70 35' stroke='%23000' stroke-width='0.4'/%3E%3C/svg%3E")`,
-              backgroundSize: '50px 50px'
-            }}
-          ></div>
-        </div>
-        
-        <div className="max-w-6xl mx-auto relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 1.2 }}
-            className="text-center mb-12 sm:mb-16 md:mb-20 lg:mb-24"
-          >
-            <p className="text-gray-500 text-[10px] sm:text-xs uppercase tracking-[0.3em] sm:tracking-[0.35em] md:tracking-[0.4em] mb-4 sm:mb-6 md:mb-8 font-light">
-              Quà Tặng
-            </p>
-            <div className="flex items-center justify-center gap-4 sm:gap-6 md:gap-8 mb-6 sm:mb-8 md:mb-10">
-              <div className="h-px w-12 sm:w-16 md:w-20 lg:w-28 bg-gradient-to-r from-transparent via-gray-300 to-gray-300"></div>
-              <span className="text-gray-400 text-lg sm:text-xl md:text-2xl">✦</span>
-              <div className="h-px w-12 sm:w-16 md:w-20 lg:w-28 bg-gradient-to-r from-gray-300 via-gray-300 to-transparent"></div>
-            </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black mb-4 sm:mb-6 md:mb-8">
-              Hộp Mừng Cưới
-            </h2>
-            <p className="text-gray-600 font-light max-w-3xl mx-auto text-sm sm:text-base md:text-lg leading-relaxed px-4">
-              Nếu bạn muốn gửi quà cưới, bạn có thể chuyển khoản qua tài khoản ngân hàng dưới đây. 
-              Chúng tôi rất cảm ơn tình cảm của các bạn!
-            </p>
-          </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-10">
-            {[
-              {
-                bank: 'Vietcombank',
-                account: '0123456789',
-                name: 'Nguyễn Minh Anh',
-                content: 'Minh Anh & Hoang Long'
-              },
-              {
-                bank: 'BIDV',
-                account: '9876543210',
-                name: 'Trần Hoàng Long',
-                content: 'Minh Anh & Hoang Long'
-              }
-            ].map((account, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 1.2, delay: index * 0.15 }}
-                className="bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 p-6 sm:p-8 md:p-10 lg:p-12 shadow-[0_10px_40px_rgba(0,0,0,0.08)] hover:shadow-[0_15px_50px_rgba(0,0,0,0.12)] transition-all duration-500"
-              >
-                <div className="aspect-square w-16 h-16 sm:w-18 md:w-20 rounded-sm bg-gray-100 flex items-center justify-center mb-6 sm:mb-8 border-2 border-gray-200">
-                  <span className="text-2xl sm:text-3xl">🏦</span>
-                </div>
-                <div className="space-y-4 sm:space-y-5 md:space-y-6">
-                  <div>
-                    <p className="text-[10px] sm:text-xs text-gray-500 mb-2 sm:mb-3 uppercase tracking-[0.15em] sm:tracking-[0.2em] font-light">Tên ngân hàng</p>
-                    <p className="text-black font-medium text-lg sm:text-xl">{account.bank}</p>
-                  </div>
-                  <div>
-                    <p className="text-[10px] sm:text-xs text-gray-500 mb-2 sm:mb-3 uppercase tracking-[0.15em] sm:tracking-[0.2em] font-light">Số tài khoản</p>
-                    <p className="text-black font-medium text-lg sm:text-xl">{account.account}</p>
-                  </div>
-                  <div>
-                    <p className="text-[10px] sm:text-xs text-gray-500 mb-2 sm:mb-3 uppercase tracking-[0.15em] sm:tracking-[0.2em] font-light">Chủ tài khoản</p>
-                    <p className="text-black font-medium text-lg sm:text-xl">{account.name}</p>
-                  </div>
-                  <div>
-                    <p className="text-[10px] sm:text-xs text-gray-500 mb-2 sm:mb-3 uppercase tracking-[0.15em] sm:tracking-[0.2em] font-light">Nội dung chuyển khoản</p>
-                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
-                      <p className="text-black font-medium flex-1 text-base sm:text-lg">{account.content}</p>
-                      <button
-                        onClick={() => copyToClipboard(account.content)}
-                        className="bg-black text-white px-4 sm:px-5 py-2 sm:py-2.5 hover:bg-gray-800 transition-all duration-300 text-[10px] sm:text-xs font-light uppercase tracking-[0.15em] sm:tracking-[0.2em] border-2 border-black hover:shadow-lg w-full sm:w-auto"
-                      >
-                        Sao chép
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Footer - Premium Mobile-First */}
-      <footer className="relative bg-black py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32 px-4 sm:px-6 text-center text-white overflow-hidden">
-        {/* Premium gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-950 to-black"></div>
-        
-        {/* Ornate corner borders */}
-        <div className="absolute top-0 left-0 w-32 h-32 sm:w-40 md:w-48 lg:w-52 border-t-2 border-l-2 border-white/10 sm:border-white/12 md:border-white/15"></div>
-        <div className="absolute top-0 right-0 w-32 h-32 sm:w-40 md:w-48 lg:w-52 border-t-2 border-r-2 border-white/10 sm:border-white/12 md:border-white/15"></div>
-        <div className="absolute bottom-0 left-0 w-32 h-32 sm:w-40 md:w-48 lg:w-52 border-b-2 border-l-2 border-white/10 sm:border-white/12 md:border-white/15"></div>
-        <div className="absolute bottom-0 right-0 w-32 h-32 sm:w-40 md:w-48 lg:w-52 border-b-2 border-r-2 border-white/10 sm:border-white/12 md:border-white/15"></div>
-        
-        {/* Premium pattern */}
-        <div className="absolute inset-0 opacity-[0.015] sm:opacity-[0.02] md:opacity-[0.025]">
-          <div 
-            className="w-full h-full"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='120' height='120' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='60' cy='60' r='2' fill='%23fff'/%3E%3C/svg%3E")`,
-              backgroundSize: '80px 80px'
-            }}
-          ></div>
-        </div>
-        
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 1.2 }}
-          className="max-w-5xl mx-auto relative z-10"
-        >
-          <div className="flex items-center justify-center gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12 md:mb-16">
-            <div className="h-px w-16 sm:w-20 md:w-24 lg:w-32 bg-gradient-to-r from-transparent via-white/35 to-white/40"></div>
-            <span className="text-white/55 sm:text-white/60 text-xl sm:text-2xl md:text-3xl">✦</span>
-            <div className="h-px w-16 sm:w-20 md:w-24 lg:w-32 bg-gradient-to-r from-white/40 via-white/40 to-transparent"></div>
-          </div>
-          <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-4 sm:mb-6 md:mb-8">
-            Minh Anh & Hoàng Long
-          </h3>
-          <p className="text-gray-400 font-light text-sm sm:text-base px-4">
-            Cảm ơn bạn đã đến với trang web của chúng tôi
-          </p>
-          <div className="flex items-center justify-center gap-4 sm:gap-6 md:gap-8 mt-8 sm:mt-12 md:mt-16">
-            <div className="h-px w-16 sm:w-20 md:w-24 lg:w-32 bg-gradient-to-r from-transparent via-white/35 to-white/40"></div>
-            <span className="text-white/55 sm:text-white/60 text-xl sm:text-2xl md:text-3xl">✦</span>
-            <div className="h-px w-16 sm:w-20 md:w-24 lg:w-32 bg-gradient-to-r from-white/40 via-white/40 to-transparent"></div>
-          </div>
-        </motion.div>
-      </footer>
+   
     </div>
   )
 }
