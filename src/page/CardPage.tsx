@@ -568,9 +568,9 @@ function CardPage() {
                 whileHover={{ scale: 1.02 }}
                 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4 sm:mb-6 text-black font-light leading-tight"
               >
-                <span className="block">Têrêxa</span>
+                <span className="block">Têrêsa</span>
                 <span className="block text-[0.9em] sm:text-[0.95em] tracking-wide mt-1 md:whitespace-nowrap">
-                  Hà Kiều Trinh
+                  Hà Thị Kiều Trinh
                 </span>
               </motion.h3>
               <p className="text-gray-500 text-xs sm:text-sm md:text-base font-light tracking-wide mt-4 sm:mt-6">
