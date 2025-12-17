@@ -17,10 +17,14 @@ const generateSlug = (name: string) =>
     .replace(/\s+/g, '-')
     .replace(/-+/g, '-');
 
-const API_URL = 'https://6942b03469b12460f312696e.mockapi.io/guest';
+const GROOM_API_URL = 'https://6942b03469b12460f312696e.mockapi.io/guest';
+const BRIDE_API_URL = 'https://6942b03469b12460f312696e.mockapi.io/brideGuest';
 const ITEMS_PER_PAGE = 10;
 
+type GuestType = 'groom' | 'bride';
+
 const GuestManager: React.FC = () => {
+  const [guestType, setGuestType] = useState<GuestType>('groom');
   const [guests, setGuests] = useState<Guest[]>([]);
   const [loading, setLoading] = useState(true);
   const [editingId, setEditingId] = useState<string | null>(null);
@@ -28,6 +32,8 @@ const GuestManager: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [toast, setToast] = useState<string | null>(null);
+
+  const API_URL = guestType === 'groom' ? GROOM_API_URL : BRIDE_API_URL;
 
   useEffect(() => {
     if (toast) {
@@ -38,7 +44,7 @@ const GuestManager: React.FC = () => {
 
   useEffect(() => {
     fetchGuests();
-  }, []);
+  }, [guestType]);
 
   const fetchGuests = async () => {
     try {
@@ -118,6 +124,40 @@ const GuestManager: React.FC = () => {
         </div>
       </div>
 
+      {/* Toggle Guest Type */}
+      <div className="max-w-2xl mx-auto px-5 pt-6 pb-4">
+        <div className="flex gap-2 bg-white/5 rounded-2xl p-1 border border-white/10">
+          <button
+            onClick={() => {
+              setGuestType('groom');
+              setCurrentPage(1);
+              setSearchTerm('');
+            }}
+            className={`flex-1 py-2.5 px-4 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
+              guestType === 'groom'
+                ? 'bg-indigo-500 text-white shadow-lg'
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            Chú Rể
+          </button>
+          <button
+            onClick={() => {
+              setGuestType('bride');
+              setCurrentPage(1);
+              setSearchTerm('');
+            }}
+            className={`flex-1 py-2.5 px-4 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
+              guestType === 'bride'
+                ? 'bg-pink-500 text-white shadow-lg'
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            Cô Dâu
+          </button>
+        </div>
+      </div>
+
       <main className="max-w-2xl mx-auto px-5 pt-8">
         {/* Input Card - Glassmorphism */}
         <div className="mb-10 bg-gradient-to-b from-white/10 to-transparent p-[1px] rounded-[2rem]">
@@ -174,7 +214,11 @@ const GuestManager: React.FC = () => {
                 
                 <div className="flex gap-2">
                   <button
-                    onClick={() => window.open(`/${guest.slug || generateSlug(guest.fullName)}`, '_blank')}
+                    onClick={() => {
+                      const slug = guest.slug || generateSlug(guest.fullName);
+                      const link = guestType === 'groom' ? `/${slug}` : `/bride/${slug}`;
+                      window.open(link, '_blank');
+                    }}
                     className="flex items-center justify-center gap-1 px-3 h-10 rounded-xl bg-indigo-500/20 text-indigo-100 text-[10px] sm:text-[11px] font-semibold tracking-[0.16em] uppercase border border-indigo-500/40 active:bg-indigo-500 active:text-white transition-all"
                   >
                     <span className="text-xs">✉️</span>
