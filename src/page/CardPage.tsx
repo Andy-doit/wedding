@@ -462,7 +462,7 @@ export default function CardPage() {
             Hoài An & Kiều Trinh
           </p>
           <p className="text-xs sm:text-sm text-[#a09274] mt-3 tracking-[0.2em]">
-            16 • 01 • 2026
+            18 • 01 • 2026
           </p>
         </motion.div>
       </section>
