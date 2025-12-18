@@ -111,7 +111,7 @@ export default function CardPage() {
 
             {/* Date */}
             <p className="mt-8 lg:mt-12 text-xl sm:text-xl lg:text-lg tracking-[0.15em] text-white/80">
-              16 . 01 . 2026
+              18 . 01 . 2026
             </p>
 
             {/* Guest */}
