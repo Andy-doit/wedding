@@ -111,7 +111,7 @@ export default function CardBridePage() {
             </h1>
 
             {/* Date */}
-            <p className="mt-8 lg:mt-12 text-sm sm:text-base lg:text-lg tracking-[0.15em] text-white/80">
+            <p className="mt-8 lg:mt-12 text-xl sm:text-xl lg:text-lg tracking-[0.15em] text-white/80">
               17 . 01 . 2026
             </p>
 
@@ -120,7 +120,7 @@ export default function CardBridePage() {
               <p className="text-[10px] sm:text-xs tracking-[0.25em] uppercase text-white/50 mb-2">
                 Trân trọng kính mời
               </p>
-              <p className="text-xl sm:text-2xl lg:text-3xl font-light text-[#d4c5a9]">
+              <p className="text-2xl sm:text-2xl lg:text-3xl font-bold text-[#d4c5a9]">
                 {guest}
               </p>
             </div>
@@ -143,7 +143,7 @@ export default function CardBridePage() {
             <p className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-[#a09274] mb-4">
               Save The Date
             </p>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-light text-[#3d3d3d] mb-2">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-normal text-[#3d3d3d] mb-2">
               Thứ Bảy, 17 Tháng 01
             </h2>
             <p className="text-sm sm:text-base text-[#8a8a8a] mb-8 lg:mb-12">
@@ -160,7 +160,7 @@ export default function CardBridePage() {
               ].map((item, i) => (
                 <div key={i} className="w-16 sm:w-20 lg:w-24">
                   <div className="aspect-square rounded-2xl bg-[#f8f6f1] flex items-center justify-center border border-[#ebe7dc]">
-                    <span className="text-2xl sm:text-3xl lg:text-4xl font-light text-[#5a5a5a] tabular-nums">
+                    <span className="text-2xl sm:text-3xl lg:text-4xl font-normal text-[#5a5a5a] tabular-nums">
                       {String(item.v).padStart(2, '0')}
                     </span>
                   </div>
@@ -199,16 +199,16 @@ export default function CardBridePage() {
               viewport={{ once: true }}
               className="text-center"
             >
-              <div className="w-24 h-24 lg:w-28 lg:h-28 mx-auto mb-6 rounded-full bg-gradient-to-br from-[#9caf88] to-[#7a9068] flex items-center justify-center">
+              <div className="w-24 h-24 lg:w-28 lg:h-28 mx-auto mb-6 rounded-full bg-gradient-to-br from-[#66bb6a] to-[#4caf50] flex items-center justify-center">
                 <span className="text-white text-4xl lg:text-5xl">♂</span>
               </div>
-              <p className="text-[10px] sm:text-xs tracking-[0.25em] uppercase text-[#9caf88] mb-3">
+              <p className="text-[10px] sm:text-xs tracking-[0.25em] uppercase text-[#66bb6a] mb-3">
                 Chú Rể
               </p>
               <h3 className="text-3xl sm:text-3xl lg:text-4xl font-light text-[#3d3d3d] mb-1" >
                 Phêrô
               </h3>
-              <p className="text-4xl sm:text-xl lg:text-2xl text-[#6a6a6a] font-light" style={{ fontFamily: "'Beau Rivage', cursive" }}>
+              <p className="text-4xl sm:text-xl lg:text-2xl text-[#6a6a6a] font-normal" style={{ fontFamily: "'Beau Rivage', cursive" }}>
                 Lê Nguyên Hoài An
               </p>
               <p className="text-xs sm:text-sm text-[#a09274] mt-3">(Thứ nam)</p>
@@ -231,7 +231,7 @@ export default function CardBridePage() {
               <h3 className="text-3xl sm:text-3xl lg:text-4xl font-light text-[#3d3d3d] mb-1" >
                 Têrêsa
               </h3>
-              <p className="text-4xl sm:text-xl lg:text-2xl text-[#6a6a6a] font-light" style={{ fontFamily: "'Beau Rivage', cursive" }}>
+              <p className="text-4xl sm:text-xl lg:text-2xl text-[#6a6a6a] font-normal" style={{ fontFamily: "'Beau Rivage', cursive" }}>
                 Hà Thị Kiều Trinh
               </p>
               <p className="text-xs sm:text-sm text-[#a09274] mt-3">(Trưởng nữ)</p>
@@ -265,7 +265,7 @@ export default function CardBridePage() {
               viewport={{ once: true }}
               className="bg-white rounded-2xl p-6 lg:p-8 text-center"
             >
-              <p className="text-[10px] sm:text-xs tracking-[0.25em] uppercase text-[#9caf88] mb-4">
+              <p className="text-[10px] sm:text-xs tracking-[0.25em] uppercase text-[#66bb6a] mb-4">
                 Nhà Trai
               </p>
               <div className="space-y-1 mb-4">
@@ -317,7 +317,7 @@ export default function CardBridePage() {
             <p className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-[#a09274] mb-4">
               Sự Kiện
             </p>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-light text-[#3d3d3d]">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-normal text-[#3d3d3d]">
               Lễ Thành Hôn
             </h2>
           </motion.div>
@@ -330,13 +330,13 @@ export default function CardBridePage() {
               viewport={{ once: true }}
               className="bg-[#fdfcf9] rounded-2xl p-6 lg:p-8 border border-[#ebe7dc] text-center"
             >
-              <div className="w-14 h-14 lg:w-16 lg:h-16 mx-auto mb-5 rounded-full bg-[#9caf88] flex items-center justify-center">
+              <div className="w-14 h-14 lg:w-16 lg:h-16 mx-auto mb-5 rounded-full bg-[#66bb6a] flex items-center justify-center">
                 <span className="text-white text-2xl">⛪</span>
               </div>
-              <p className="text-[10px] tracking-[0.2em] uppercase text-[#9caf88] mb-2">
+              <p className="text-[10px] tracking-[0.2em] uppercase text-[#66bb6a] mb-2">
                 Thánh Lễ Hôn Phối
               </p>
-              <p className="text-lg lg:text-xl text-[#4a4a4a] font-light mb-1">
+              <p className="text-lg lg:text-xl text-[#4a4a4a] font-normal mb-1">
                 Thứ Sáu, 16/01/2026
               </p>
               <p className="text-sm lg:text-base text-[#6a6a6a] mb-4">
@@ -350,7 +350,7 @@ export default function CardBridePage() {
               </p>
               <button
                 onClick={() => window.open('https://www.google.com/maps/place/Vinh+An+Parish+Church/@12.4285939,107.6351848,17z', '_blank')}
-                className="w-full py-3.5 lg:py-4 rounded-xl bg-[#9caf88] text-white text-sm lg:text-base font-medium hover:bg-[#8a9e78] active:scale-[0.98] transition-all"
+                className="w-full py-3.5 lg:py-4 rounded-xl bg-[#66bb6a] text-white text-sm lg:text-base font-medium hover:bg-[#4caf50] active:scale-[0.98] transition-all"
               >
                 Xem bản đồ
               </button>
@@ -370,7 +370,7 @@ export default function CardBridePage() {
               <p className="text-[10px] tracking-[0.2em] uppercase text-[#c4b08a] mb-2">
                 Tiệc Cưới
               </p>
-              <p className="text-lg lg:text-xl text-[#4a4a4a] font-light mb-1">
+              <p className="text-lg lg:text-xl text-[#4a4a4a] font-normal mb-1">
                 Thứ Bảy, 17/01/2026
               </p>
               <p className="text-sm lg:text-base text-[#6a6a6a] mb-4">
@@ -410,7 +410,7 @@ export default function CardBridePage() {
             <p className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-[#a09274] mb-4">
               Moments
             </p>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-light text-white">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-normal text-white">
               Khoảnh Khắc
             </h2>
           </motion.div>
@@ -453,7 +453,7 @@ export default function CardBridePage() {
             Lời Cảm Ơn
           </p>
           
-          <p className="text-base sm:text-lg lg:text-xl text-[#6a6a6a] font-light leading-relaxed mb-8">
+          <p className="text-base sm:text-lg lg:text-xl text-[#6a6a6a] font-normal leading-relaxed mb-8">
             Sự hiện diện của bạn là niềm vui và là lời chúc phúc ý nghĩa nhất dành cho chúng tôi.
           </p>
 
