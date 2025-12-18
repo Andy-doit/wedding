@@ -112,7 +112,7 @@ export default function CardBridePage() {
 
             {/* Date */}
             <p className="mt-8 lg:mt-12 text-sm sm:text-base lg:text-lg tracking-[0.15em] text-white/80">
-              18 . 01 . 2026
+              17 . 01 . 2026
             </p>
 
             {/* Guest */}
